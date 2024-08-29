@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --shake-distance: -.4em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  font-family:monospace;
+  font-family: "DM Mono", monospace;
+  font-size: 18px;
+  width:100vw;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes listeningAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  5% { transform: translateX(var(--shake-distance)); }
+  10% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  15% { transform: translateX(var(--shake-distance)); }
+  20% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  25% { transform: translateX(var(--shake-distance)); }
+  30% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  35% { transform: translateX(var(--shake-distance)); }
+  40% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  45% { transform: translateX(var(--shake-distance)); }
+  50% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  55% { transform: translateX(var(--shake-distance)); }
+  60% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  65% { transform: translateX(var(--shake-distance)); }
+  70% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  75% { transform: translateX(var(--shake-distance)); }
+  80% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  85% { transform: translateX(var(--shake-distance)); }
+  90% { transform: translateX(calc(var(--shake-distance) * -1)); }
+  95% { transform: translateX(var(--shake-distance)); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .appWrapper{
+    max-width:1024px;
+    margin:0 auto;
+  }
+}
+
+@media (max-width: 710px) {
+  body{
+    font-size: .9em;
+  }
+}
+
+.firebaseui-container{
+  width:100%!important;
+}
